@@ -1,6 +1,7 @@
 package com.roma.study.environment.config;
 
 import com.roma.study.resource.HelloResource;
+import com.roma.study.resource.NoticeResource;
 import jakarta.servlet.ServletConfig;
 import jakarta.ws.rs.ApplicationPath;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -17,6 +18,7 @@ public class JerseyConfig extends ResourceConfig implements ServletConfigAware{
 
     public JerseyConfig(){
         register(HelloResource.class);
+        register(NoticeResource.class);
 
         property(ServerProperties.RESPONSE_SET_STATUS_OVER_SEND_ERROR, true);
         property(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true);
