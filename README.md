@@ -1,5 +1,5 @@
 # multiStudy
 
 Back & Front multiStudy
-# SpringBoot
-# Vue.js
+- SpringBoot
+- Vue.js
