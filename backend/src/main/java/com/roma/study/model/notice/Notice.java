@@ -9,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
 public class Notice extends CommonField {
+
     @Id
     @Column(name = "seq", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,15 +19,14 @@ public class Notice extends CommonField {
     private String content;
 
     @Builder
-    public Notice(Long seq, String title, String content) {
+    public Notice(Long seq, String title, String content){
         this.seq = seq;
         this.title = title;
         this.content = content;
     }
 
-    public void modifyTitleAndContent(String title, String content) {
+    public void modifyTitleAndContent(String title, String content){
         this.title = title;
         this.content = content;
     }
-
 }

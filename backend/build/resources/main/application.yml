@@ -2,21 +2,34 @@ server:
   port: 9006
 
 spring:
+  output:
+    ansi:
+      enabled: always
+  thymeleaf:
+    cache: false
   datasource:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     url: jdbc:log4jdbc:postgresql://localhost:5432/st_roma
     username: euroma
     password: 1111
-
+  sql:
+    init:
+      mode: always
+      platform: postgres
+      encoding: UTF-8
   jpa:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
     format-sql: true
+#  security:
+#    user:
+#      name: roma
+#      password: 1111
 
 #TODO logging option -> logback
 logging:
   level:
-    com.roma.study: debug
+    net.ion.act: debug
     log4jdbc.log4j2: error

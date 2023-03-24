@@ -5,6 +5,7 @@ import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 @Getter
+@Setter
 public class CommonField implements Serializable {
 
     private static final long serialVersionUID = -2992545784081445032L;
@@ -22,14 +24,14 @@ public class CommonField implements Serializable {
     @Column(name = "mod_date", nullable = true)
     private Timestamp modDate;
 
-    @Column(name = "reg_member", nullable = true, updatable = false)
+    @Column(name = "reg_member", updatable = false)
     private Integer regMember;
 
     @Column(name = "mod_member", nullable = true, updatable = true)
     private Integer modMember;
 
     @PrePersist
-    protected void onCreate() {
+    protected void onCreate(){
         regDate = Timestamp.valueOf(LocalDateTime.now());
         modDate = Timestamp.valueOf(LocalDateTime.now());
     }
@@ -39,8 +41,5 @@ public class CommonField implements Serializable {
         modDate = Timestamp.valueOf(LocalDateTime.now());
     }
 
-    public void setMember(int member){
-        this.regMember = member;
-        this.modMember = member;
-    }
+
 }
